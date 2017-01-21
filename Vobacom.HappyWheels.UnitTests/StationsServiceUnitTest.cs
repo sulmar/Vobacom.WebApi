@@ -9,7 +9,14 @@ namespace Vobacom.HappyWheels.UnitTests
     [TestClass]
     public class StationsServiceUnitTest
     {
-        IStationsService stationsService = new MockStationsService();
+        IStationsService stationsService;
+
+
+        [TestInitialize]
+        public void Init()
+        {
+            stationsService = new MockStationsService();
+        }
 
         [TestMethod]
         public void GetTest()
