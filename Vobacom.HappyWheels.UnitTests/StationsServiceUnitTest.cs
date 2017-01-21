@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Vobacom.HappyWheeks.Interfaces;
 using Vobacom.HappyWheels.MockServices;
+using System.Collections.Generic;
 
 namespace Vobacom.HappyWheels.UnitTests
 {
@@ -66,6 +67,32 @@ namespace Vobacom.HappyWheels.UnitTests
 
             Assert.AreEqual(number, station2.Number);
 
+        }
+
+
+        [TestMethod]
+        public void DeleteTest()
+        {
+            var stationId = 1;
+
+            stationsService.Delete(stationId);
+
+            var station = stationsService.Get(stationId);
+
+            Assert.IsNull(station);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(KeyNotFoundException))]
+        public void DeleteNotFoundTest()
+        {
+            var stationId = 999;
+
+            stationsService.Delete(stationId);
+
+            var station = stationsService.Get(stationId);
+
+            Assert.IsNull(station);
         }
     }
 }
