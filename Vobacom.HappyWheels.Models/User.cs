@@ -19,7 +19,8 @@ namespace Vobacom.HappyWheels.Models
         {
             get
             {
-                return String.Format("{0} {2}", FirstName, LastName);
+                // C# 6.0
+                return $"{FirstName} {LastName}";
             }
         }
 
