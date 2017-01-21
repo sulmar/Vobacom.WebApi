@@ -43,8 +43,11 @@
     <Compile Include="Base.cs" />
     <Compile Include="Bike.cs" />
     <Compile Include="BikeType.cs" />
+    <Compile Include="Gender.cs" />
     <Compile Include="Location.cs" />
+    <Compile Include="PriceList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rental.cs" />
     <Compile Include="Station.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
