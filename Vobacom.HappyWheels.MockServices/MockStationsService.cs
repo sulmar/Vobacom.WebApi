@@ -79,7 +79,7 @@ namespace Vobacom.HappyWheels.MockServices
 
         public void Update(Station station)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
