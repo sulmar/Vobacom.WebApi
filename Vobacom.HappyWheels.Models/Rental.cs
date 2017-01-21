@@ -16,13 +16,13 @@ namespace Vobacom.HappyWheels.Models
 
         public DateTime RentDateFrom { get; set; }
 
-        public DateTime RentDateTo { get; set; }
+        public DateTime? RentDateTo { get; set; }
 
         public Bike Bike { get; set; }
 
         public User Rentee { get; set; }
 
-        public decimal Cost { get; set; }
+        public decimal? Cost { get; set; }
 
 
     }
