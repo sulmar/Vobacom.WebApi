@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Vobacom.HappyWheeks.Interfaces;
 using Vobacom.HappyWheels.MockServices;
 using System.Collections.Generic;
+using Vobacom.HappyWheels.Models;
 
 namespace Vobacom.HappyWheels.UnitTests
 {
@@ -86,13 +87,31 @@ namespace Vobacom.HappyWheels.UnitTests
         [ExpectedException(typeof(KeyNotFoundException))]
         public void DeleteNotFoundTest()
         {
-            var stationId = 999;
+            var stationId = 99;
 
             stationsService.Delete(stationId);
 
             var station = stationsService.Get(stationId);
 
             Assert.IsNull(station);
+        }
+
+
+        [TestMethod]
+        public void AddTest()
+        {
+            var station = new Station
+            {
+                Number = "ST001",
+                Address = "Wschodnia 36d, Toruń",
+                Capacity = 10,
+                Location = new Location { Latitude = 54.01f, Longitute = 21.04f }
+            };
+
+
+            stationsService.Add(station);
+
+            Assert.IsTrue(station.StationId > 0);
         }
     }
 }
