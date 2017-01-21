@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace Vobacom.HappyWheels.Models
 {
-    public class Class1
+    public enum BikeType
     {
+        Kids,
+        
+        Womans,
+
+        Mens,
+        
+        Sport,
+
+        Tandem,
+
+        UniSex
+        
+         
     }
 }
