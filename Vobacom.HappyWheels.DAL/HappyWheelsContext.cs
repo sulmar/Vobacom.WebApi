@@ -29,5 +29,32 @@ namespace Vobacom.HappyWheels.DAL
         {
 
         }
+
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<User>()
+                .Property(p => p.FirstName)
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<User>()
+                .Property(p => p.LastName)
+                .HasMaxLength(50)
+                .IsRequired();
+
+
+            modelBuilder.Entity<Bike>()
+                .Property(p => p.SerialNumber)
+                .HasMaxLength(10)
+                .IsRequired();
+
+            modelBuilder.Entity<Bike>()
+                .Property(p => p.Color)
+                .HasMaxLength(100);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
