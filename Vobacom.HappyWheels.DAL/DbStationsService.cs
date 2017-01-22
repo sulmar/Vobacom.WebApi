@@ -10,6 +10,12 @@ namespace Vobacom.HappyWheels.DAL
 {
     public class DbStationsService : IStationsService
     {
+
+        public void Print()
+        {
+
+        }
+
         public void Add(Station station)
         {
             using (var context = new HappyWheelsContext())

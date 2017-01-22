@@ -10,6 +10,7 @@ namespace Vobacom.HappyWheels.Models
     {
         public int RentalId { get; set; }
 
+        // Navigation Property
         public Station StationFrom { get; set; }
 
         public Station StationTo { get; set; }
