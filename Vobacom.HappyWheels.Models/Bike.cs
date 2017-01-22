@@ -17,5 +17,8 @@ namespace Vobacom.HappyWheels.Models
         public BikeType BikeType { get; set; }
 
         public bool IsActive { get; set; }
+
+
+        public Location Location { get; set; }
     }
 }

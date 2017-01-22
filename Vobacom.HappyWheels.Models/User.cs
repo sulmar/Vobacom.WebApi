@@ -24,6 +24,8 @@ namespace Vobacom.HappyWheels.Models
 
         public string Password { get; set; }
 
+        public float? Weight { get; set; }
+
 
         // C# 6.0
         public string FullName => $"{FirstName} {LastName}";

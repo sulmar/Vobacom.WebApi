@@ -54,6 +54,23 @@
     <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="DbStationsService.cs" />
     <Compile Include="HappyWheelsContext.cs" />
+    <Compile Include="Migrations\201701221046228_InitialCreate.cs" />
+    <Compile Include="Migrations\201701221046228_InitialCreate.Designer.cs">
+      <DependentUpon>201701221046228_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701221111339_AddWeightToUser.cs" />
+    <Compile Include="Migrations\201701221111339_AddWeightToUser.Designer.cs">
+      <DependentUpon>201701221111339_AddWeightToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701221214144_AddLocationToBike.cs" />
+    <Compile Include="Migrations\201701221214144_AddLocationToBike.Designer.cs">
+      <DependentUpon>201701221214144_AddLocationToBike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701221239026_UpdateWeightOnUser.cs" />
+    <Compile Include="Migrations\201701221239026_UpdateWeightOnUser.Designer.cs">
+      <DependentUpon>201701221239026_UpdateWeightOnUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +86,20 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201701221046228_InitialCreate.resx">
+      <DependentUpon>201701221046228_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701221111339_AddWeightToUser.resx">
+      <DependentUpon>201701221111339_AddWeightToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701221214144_AddLocationToBike.resx">
+      <DependentUpon>201701221214144_AddLocationToBike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701221239026_UpdateWeightOnUser.resx">
+      <DependentUpon>201701221239026_UpdateWeightOnUser.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
