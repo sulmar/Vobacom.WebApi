@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\BikeConfiguration.cs" />
+    <Compile Include="Configurations\StationConfiguration.cs" />
+    <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="DbStationsService.cs" />
     <Compile Include="HappyWheelsContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

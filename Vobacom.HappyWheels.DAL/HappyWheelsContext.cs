@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vobacom.HappyWheels.DAL.Configurations;
 using Vobacom.HappyWheels.Models;
 
 namespace Vobacom.HappyWheels.DAL
@@ -35,24 +36,10 @@ namespace Vobacom.HappyWheels.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<User>()
-                .Property(p => p.FirstName)
-                .HasMaxLength(50);
-
-            modelBuilder.Entity<User>()
-                .Property(p => p.LastName)
-                .HasMaxLength(50)
-                .IsRequired();
-
-
-            modelBuilder.Entity<Bike>()
-                .Property(p => p.SerialNumber)
-                .HasMaxLength(10)
-                .IsRequired();
-
-            modelBuilder.Entity<Bike>()
-                .Property(p => p.Color)
-                .HasMaxLength(100);
+            modelBuilder.Configurations
+                .Add(new UserConfiguration())
+                .Add(new BikeConfiguration())
+                .Add(new StationConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
