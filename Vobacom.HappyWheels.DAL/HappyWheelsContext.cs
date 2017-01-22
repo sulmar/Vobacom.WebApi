@@ -10,6 +10,9 @@ namespace Vobacom.HappyWheels.DAL
 {
     public class HappyWheelsContext : DbContext
     {
+
+        #region
+
         public DbSet<Station> Stations { get; set; }
 
         public DbSet<User> Users { get; set; }
@@ -18,6 +21,8 @@ namespace Vobacom.HappyWheels.DAL
 
         public DbSet<Rental> Rentals { get; set; }
 
+
+        #endregion
 
         public HappyWheelsContext()
             : base("HappyWheelsConnection")
