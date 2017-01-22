@@ -28,7 +28,11 @@ namespace Vobacom.HappyWheels.DAL
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+
+            using (var context = new HappyWheelsContext())
+            {
+
+            }
         }
 
         public IList<Station> Get()
@@ -38,12 +42,32 @@ namespace Vobacom.HappyWheels.DAL
 
         public Station Get(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new HappyWheelsContext())
+            {
+                return context.Stations.SingleOrDefault(s => s.StationId == id);
+            }
         }
 
         public void Update(Station station)
         {
-            throw new NotImplementedException();
+            using (var context = new HappyWheelsContext())
+            {
+                Console.WriteLine(context.Entry(station).State);
+
+               // context.Stations.Attach(station);
+
+                Console.WriteLine(context.Entry(station).State);
+
+                context.Entry(station).State = System.Data.Entity.EntityState.Modified;
+                Console.WriteLine(context.Entry(station).State);
+
+                context.SaveChanges();
+
+                Console.WriteLine(context.Entry(station).State);
+
+                var entities = context.ChangeTracker.Entries();
+
+            }
         }
     }
 }

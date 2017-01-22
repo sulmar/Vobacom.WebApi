@@ -52,6 +52,7 @@
     <Compile Include="Configurations\BikeConfiguration.cs" />
     <Compile Include="Configurations\StationConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
+    <Compile Include="DbRentalsService.cs" />
     <Compile Include="DbStationsService.cs" />
     <Compile Include="HappyWheelsContext.cs" />
     <Compile Include="Migrations\201701221046228_InitialCreate.cs" />

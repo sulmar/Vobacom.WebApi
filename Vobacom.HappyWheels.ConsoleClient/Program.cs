@@ -18,7 +18,59 @@ namespace Vobacom.HappyWheels.ConsoleClient
         static void Main(string[] args)
         {
 
+            AddRentalTest();
+
+            UpdateStationTest();
+
+            DeleteStationTest();
+
             AddStationTest();
+        }
+
+        private static void AddRentalTest()
+        {
+            var stationId = 1;
+
+            IStationsService stationsService = new DbStationsService();
+
+            var station = stationsService.Get(stationId);
+
+            var rental = new Rental
+            {
+                Bike = new Bike {  BikeId = 1 },
+                Rentee = new User {  UserId = 2},
+                StationFrom = station,
+            };
+
+            IRentalsService rentalsService = new DbRentalsService();
+
+            rentalsService.Add(rental);
+
+
+            
+
+        }
+
+        private static void UpdateStationTest()
+        {
+            var stationId = 1;
+
+            IStationsService stationsService = new DbStationsService();
+
+            var station = stationsService.Get(stationId);
+
+            station.Number = "ST045";
+
+            stationsService.Update(station);
+        }
+
+        private static void DeleteStationTest()
+        {
+            var stationId = 1;
+
+            IStationsService stationsService = new DbStationsService();
+
+            stationsService.Delete(stationId);
         }
 
         private static void AddStationTest()
@@ -38,6 +90,8 @@ namespace Vobacom.HappyWheels.ConsoleClient
 
 
         }
+
+
 
         private static Station GetStation()
         {
