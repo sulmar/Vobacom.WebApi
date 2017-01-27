@@ -23,18 +23,24 @@ namespace Vobacom.HappyWheels.Service.Controllers
         }
 
 
-        public IList<Station> Get()
+        public IHttpActionResult Get()
         {           
             var stations = stationsService.Get();
 
-            return stations;
+            if (!stations.Any())
+                return NotFound();
+
+            return Ok(stations);
         }
 
-        public Station Get(int id)
+        public IHttpActionResult Get(int id)
         {
             var station = stationsService.Get(id);
 
-            return station;
+            if (station == null)
+                return NotFound();
+
+            return Ok(station);
         }
     }
 }

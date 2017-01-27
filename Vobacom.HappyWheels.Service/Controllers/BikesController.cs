@@ -24,14 +24,24 @@ namespace Vobacom.HappyWheels.Service.Controllers
             this.bikesService = bikesService;
         }
 
-        public IList<Bike> Get()
+        public IHttpActionResult Get()
         {
-            return bikesService.Get();
+            var bikes = bikesService.Get();
+
+            if (!bikes.Any())
+                return NotFound();
+
+            return Ok(bikes);
         }
 
-        public Bike Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return bikesService.Get(id);
+            var bike = bikesService.Get(id);
+
+            if (bike == null)
+                return NotFound();
+
+            return Ok(bike);
         }
     }
 }
