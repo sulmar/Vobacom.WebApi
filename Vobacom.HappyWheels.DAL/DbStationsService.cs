@@ -37,7 +37,10 @@ namespace Vobacom.HappyWheels.DAL
 
         public IList<Station> Get()
         {
-            throw new NotImplementedException();
+            using (var context = new HappyWheelsContext())
+            {
+                return context.Stations.ToList();
+            }
         }
 
         public Station Get(int id)
