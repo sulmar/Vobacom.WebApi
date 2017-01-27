@@ -7,8 +7,7 @@ using Vobacom.HappyWheels.Models;
 
 namespace Vobacom.HappyWheeks.Interfaces
 {
-    public interface IStationsService : IService<Station>
+    public interface IUsersService : IService<User>
     {
-        
     }
 }

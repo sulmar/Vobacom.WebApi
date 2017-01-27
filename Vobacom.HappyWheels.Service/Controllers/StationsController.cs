@@ -11,7 +11,17 @@ namespace Vobacom.HappyWheels.Service.Controllers
 {
     public class StationsController : ApiController
     {
-        IStationsService stationsService = new DbStationsService();
+        readonly IStationsService stationsService;
+
+        public StationsController()
+            : this(new DbStationsService())
+        { }
+
+        public StationsController(IStationsService stationsService)
+        {
+            this.stationsService = stationsService;
+        }
+
 
         public IList<Station> Get()
         {           
