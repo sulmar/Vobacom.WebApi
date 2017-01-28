@@ -10,9 +10,13 @@ namespace Vobacom.HappyWheeks.Interfaces
     {
         IList<TItem> Get();
 
+        Task<IList<TItem>> GetAsync();
+
         TItem Get(int id);
 
         void Add(TItem item);
+
+        Task AddAsync(TItem item);
 
         void Update(TItem item);
 

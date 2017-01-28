@@ -19,7 +19,9 @@ namespace Vobacom.HappyWheels.ConsoleClient
         static void Main(string[] args)
         {
 
-            CalculateAsyncTest();
+            ParallelTest();
+
+           // CalculateAsyncTest();
 
             //CalculateTest();
 
@@ -39,6 +41,23 @@ namespace Vobacom.HappyWheels.ConsoleClient
             //DeleteStationTest();
 
             //AddStationTest();
+        }
+
+        private static void ParallelTest()
+        {
+            var numbers = new List<int> { 30, 545, 765, 540 };
+
+            //foreach (var item in numbers)
+            //{
+            //    Console.WriteLine(item);
+
+            //    Thread.Sleep(1000);
+            //}
+
+           // numbers.ForEach(item => Send());
+
+
+            Parallel.ForEach(numbers, item => Send());
         }
 
         private static void CalculateSyncTest()

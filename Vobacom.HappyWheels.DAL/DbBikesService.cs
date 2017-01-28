@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Vobacom.HappyWheeks.Interfaces;
 using Vobacom.HappyWheels.Models;
+using System.Threading;
+using System.Data.Entity;
 
 namespace Vobacom.HappyWheels.DAL
 {
@@ -18,6 +20,16 @@ namespace Vobacom.HappyWheels.DAL
                 context.Bikes.Add(item);
 
                 context.SaveChanges();
+            }
+        }
+
+        public async Task AddAsync(Bike item)
+        {
+            using (var context = new HappyWheelsContext())
+            {
+                context.Bikes.Add(item);
+
+                await context.SaveChangesAsync();
             }
         }
 
@@ -66,6 +78,16 @@ namespace Vobacom.HappyWheels.DAL
             using (var context = new HappyWheelsContext())
             {
                 return context.Bikes.SingleOrDefault(s => s.BikeId == id);
+            }
+        }
+
+        public async Task<IList<Bike>> GetAsync()
+        {
+            using (var context = new HappyWheelsContext())
+            {
+                var bikes = await context.Bikes.ToListAsync();
+
+                return bikes;
             }
         }
 

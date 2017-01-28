@@ -54,6 +54,11 @@ namespace Vobacom.HappyWheels.MockServices
             station.StationId = ++maxId;
         }
 
+        public Task AddAsync(Station item)
+        {
+            return Task.Run(() => Add(item));
+        }
+
         public void Delete(int id)
         {
             var station = Get(id);
@@ -75,6 +80,11 @@ namespace Vobacom.HappyWheels.MockServices
         {
             return _Stations.SingleOrDefault(s => s.StationId == id);
             
+        }
+
+        public Task<IList<Station>> GetAsync()
+        {
+            return Task.Run(() => Get());
         }
 
         public void Update(Station station)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,16 @@ namespace Vobacom.HappyWheels.DAL
                 context.Stations.Add(station);
 
                 context.SaveChanges();
+            }
+        }
+
+        public async Task AddAsync(Station item)
+        {
+            using (var context = new HappyWheelsContext())
+            {
+                context.Stations.Add(item);
+
+                await context.SaveChangesAsync();
             }
         }
 
@@ -72,5 +83,15 @@ namespace Vobacom.HappyWheels.DAL
 
             }
         }
+
+        public async Task<IList<Station>> GetAsync()
+        {
+            using (var context = new HappyWheelsContext())
+            {
+                return await context.Stations.ToListAsync();
+            }
+        }
+
+     
     }
 }

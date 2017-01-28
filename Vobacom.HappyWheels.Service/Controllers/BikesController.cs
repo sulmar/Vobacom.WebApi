@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using Vobacom.HappyWheeks.Interfaces;
@@ -46,6 +47,24 @@ namespace Vobacom.HappyWheels.Service.Controllers
 
             return Ok(bike);
         }
+
+        //public IHttpActionResult Get()
+        //{
+        //    var bikes = bikesService.Get();
+
+        //    return Ok(bikes);
+        //}
+
+
+        public async Task<IHttpActionResult> Get()
+        {
+            var bikes = await bikesService.GetAsync();
+
+            return Ok(bikes);
+        }
+
+
+
 
 
         public IHttpActionResult Post(Bike bike)
