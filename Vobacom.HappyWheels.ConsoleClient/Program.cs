@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Vobacom.HappyWheeks.Interfaces;
 using Vobacom.HappyWheels.DAL;
@@ -17,14 +18,39 @@ namespace Vobacom.HappyWheels.ConsoleClient
     {
         static void Main(string[] args)
         {
+            SyncTest();
 
-            AddRentalTest();
 
-            UpdateStationTest();
+            Console.WriteLine("Press any key to exit.");
 
-            DeleteStationTest();
+            Console.ReadKey();
 
-            AddStationTest();
+            //AddRentalTest();
+
+            //UpdateStationTest();
+
+            //DeleteStationTest();
+
+            //AddStationTest();
+        }
+
+
+        private static void SyncTest()
+        {
+            Send();
+
+            Send();
+
+            Send();
+        }
+
+        private static void Send()
+        {
+            Console.WriteLine("Sending...");
+
+            Thread.Sleep(5000);
+
+            Console.WriteLine("Sent.");
         }
 
         private static void AddRentalTest()
