@@ -272,7 +272,7 @@ namespace Vobacom.HappyWheels.ConsoleClient
             var location = new Location
             {
                 Latitude = float.Parse(latitude, CultureInfo.InvariantCulture),
-                Longitute = float.Parse(longitude, CultureInfo.InvariantCulture)
+                Longitude = float.Parse(longitude, CultureInfo.InvariantCulture)
             };
 
             // Tworzenie instancji obiektu

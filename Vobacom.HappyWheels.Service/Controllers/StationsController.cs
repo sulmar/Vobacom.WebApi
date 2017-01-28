@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using Vobacom.HappyWheeks.Interfaces;
@@ -23,15 +24,15 @@ namespace Vobacom.HappyWheels.Service.Controllers
         }
 
 
-        public IHttpActionResult Get()
-        {           
-            var stations = stationsService.Get();
+        //public IHttpActionResult Get()
+        //{           
+        //    var stations = stationsService.Get();
 
-            if (!stations.Any())
-                return NotFound();
+        //    if (!stations.Any())
+        //        return NotFound();
 
-            return Ok(stations) ;
-        }
+        //    return Ok(stations) ;
+        //}
 
         public IHttpActionResult Get(int id)
         {
@@ -42,5 +43,21 @@ namespace Vobacom.HappyWheels.Service.Controllers
 
             return Ok(station);
         }
+
+        // api/stations?lat=53.01&lng=28.05
+        //[HttpGet]
+        //public async Task<IHttpActionResult> FindAsync(double lat, double lng)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        [HttpGet]
+        public async Task<IHttpActionResult> FindAsync([FromUri] Location location)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
     }
 }

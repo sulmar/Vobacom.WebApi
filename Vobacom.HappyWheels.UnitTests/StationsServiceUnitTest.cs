@@ -105,7 +105,7 @@ namespace Vobacom.HappyWheels.UnitTests
                 Number = "ST001",
                 Address = "Wschodnia 36d, Toruń",
                 Capacity = 10,
-                Location = new Location { Latitude = 54.01f, Longitute = 21.04f }
+                Location = new Location { Latitude = 54.01f, Longitude = 21.04f }
             };
 
 

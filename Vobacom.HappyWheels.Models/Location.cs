@@ -10,6 +10,6 @@ namespace Vobacom.HappyWheels.Models
     {
         public float Latitude { get; set; }
 
-        public float Longitute { get; set; }
+        public float Longitude { get; set; }
     }
 }

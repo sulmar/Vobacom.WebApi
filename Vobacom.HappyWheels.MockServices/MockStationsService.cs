@@ -18,7 +18,7 @@ namespace Vobacom.HappyWheels.MockServices
                 Number = "ST001",
                 Address = "Wschodnia 36d, Toruń",
                 Capacity = 10,
-                Location = new Location { Latitude = 54.01f, Longitute = 21.04f  }
+                Location = new Location { Latitude = 54.01f, Longitude = 21.04f  }
             },
 
             new Station
@@ -27,7 +27,7 @@ namespace Vobacom.HappyWheels.MockServices
                 Number = "ST002",
                 Address = "Bulwar, Toruń",
                 Capacity = 20,
-                Location = new Location { Latitude = 54.31f, Longitute = 21.54f  }
+                Location = new Location { Latitude = 54.31f, Longitude = 21.54f  }
             },
 
 
@@ -37,7 +37,7 @@ namespace Vobacom.HappyWheels.MockServices
                 Number = "ST003",
                 Address = "Stare Miasto, Toruń",
                 Capacity = 15,
-                Location = new Location { Latitude = 54.17f, Longitute = 21.64f  }
+                Location = new Location { Latitude = 54.17f, Longitude = 21.64f  }
             },
 
 
