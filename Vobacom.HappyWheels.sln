@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vobacom.HappyWheels.Console
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vobacom.HappyWheels.RestApiServices", "Vobacom.HappyWheels.RestApiServices\Vobacom.HappyWheels.RestApiServices.csproj", "{09C376CD-307F-4280-933A-F639CDE64F0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vobacom.HappyWheels.MVCClient", "Vobacom.HappyWheels.MVCClient\Vobacom.HappyWheels.MVCClient.csproj", "{37DD35F7-A47D-41EE-A2C6-E374011A4DA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{09C376CD-307F-4280-933A-F639CDE64F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09C376CD-307F-4280-933A-F639CDE64F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09C376CD-307F-4280-933A-F639CDE64F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37DD35F7-A47D-41EE-A2C6-E374011A4DA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37DD35F7-A47D-41EE-A2C6-E374011A4DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37DD35F7-A47D-41EE-A2C6-E374011A4DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37DD35F7-A47D-41EE-A2C6-E374011A4DA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
