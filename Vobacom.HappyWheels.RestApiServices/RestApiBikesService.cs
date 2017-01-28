@@ -9,7 +9,7 @@ using Vobacom.HappyWheels.Models;
 
 namespace Vobacom.HappyWheels.RestApiServices
 {
-    public class BikesRestApiService : IBikesService
+    public class BikesRestApiService : BaseRestApiService, IBikesService
     {
         public void Add(Bike item)
         {
@@ -49,15 +49,11 @@ namespace Vobacom.HappyWheels.RestApiServices
         public async Task<IList<Bike>> GetAsync()
         {
             var uri = "api/bikes";
-
-            var client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:50792/");
-
             var response = await client.GetAsync(uri);
 
-            var content = await response.Content.ReadAsStringAsync();
+            var bikes = await response.Content.ReadAsAsync<IList<Bike>>();
 
-            throw new NotImplementedException();
+            return bikes;
 
         }
 

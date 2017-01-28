@@ -20,5 +20,7 @@ namespace Vobacom.HappyWheels.Models
 
 
         public Location Location { get; set; }
+
+        public override string ToString() => SerialNumber;
     }
 }
