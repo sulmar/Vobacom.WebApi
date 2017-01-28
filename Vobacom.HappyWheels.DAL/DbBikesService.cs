@@ -28,6 +28,15 @@ namespace Vobacom.HappyWheels.DAL
             }
         }
 
+        public Bike Get(string serialNumber)
+        {
+            using (var context = new HappyWheelsContext())
+            {
+                return context.Bikes
+                    .SingleOrDefault(s => s.SerialNumber == serialNumber);
+            }
+        }
+
         public Bike Get(int id)
         {
             using (var context = new HappyWheelsContext())

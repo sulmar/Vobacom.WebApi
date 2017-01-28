@@ -9,5 +9,6 @@ namespace Vobacom.HappyWheeks.Interfaces
 {
     public interface IBikesService : IService<Bike>
     {
+        Bike Get(string serialNumber);
     }
 }
