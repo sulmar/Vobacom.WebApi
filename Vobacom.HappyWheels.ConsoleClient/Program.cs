@@ -19,7 +19,9 @@ namespace Vobacom.HappyWheels.ConsoleClient
         static void Main(string[] args)
         {
 
-            CalculateTest();
+            CalculateAsyncTest();
+
+            //CalculateTest();
 
             // CancelationTokenTest();
 
@@ -39,9 +41,32 @@ namespace Vobacom.HappyWheels.ConsoleClient
             //AddStationTest();
         }
 
+        private static void CalculateSyncTest()
+        {
+            var result = Calculate(1000);
+
+            result = Calculate(result);
+
+            result = Calculate(result);
+
+            Console.WriteLine(result);
+        }
+
+        private static async void CalculateAsyncTest()
+        {
+            var result = await CalculateAsync(1000);
+
+            result = await CalculateAsync(result);
+
+            result = await CalculateAsync(result);
+
+            Console.WriteLine(result);
+        }
+
+
         private static void CalculateTest()
         {
-            var task1 = Task.Run<decimal>(() => Calculate(1000))
+            var task1 = CalculateAsync(1000)
                 .ContinueWith(task => Calculate(task.Result))
                     .ContinueWith(task => Calculate(task.Result));
 
@@ -57,6 +82,11 @@ namespace Vobacom.HappyWheels.ConsoleClient
             //Console.WriteLine(result);
 
         }
+
+        private static Task<decimal> CalculateAsync(decimal amount)
+        {
+            return Task.Run(() => Calculate(amount));
+        } 
 
         private static void Calculate(object result)
         {
