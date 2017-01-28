@@ -47,9 +47,13 @@ namespace Vobacom.HappyWheels.Service.Controllers
         }
 
 
-        public void Post(Bike bike)
+        public IHttpActionResult Post(Bike bike)
         {
             bikesService.Add(bike);
+
+            var uri = Url.Link("DefaultApi", new { id = bike.BikeId });
+
+            return Created(uri, bike);
         }
     }
 }
