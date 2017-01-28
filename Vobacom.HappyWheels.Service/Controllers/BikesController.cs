@@ -27,9 +27,12 @@ namespace Vobacom.HappyWheels.Service.Controllers
         [Route("api/bikes/{serialNumber}")]
         public IHttpActionResult Get(string serialNumber)
         {
-            throw new NotImplementedException();
+            var bike = bikesService.Get(serialNumber);
 
-            return Ok();
+            if (bike == null)
+                return NotFound();
+
+            return Ok(bike);
         }
 
         [Route("api/bikes/{id:int}")]
@@ -41,6 +44,12 @@ namespace Vobacom.HappyWheels.Service.Controllers
                 return NotFound();
 
             return Ok(bike);
+        }
+
+
+        public void Post(Bike bike)
+        {
+            bikesService.Add(bike);
         }
     }
 }

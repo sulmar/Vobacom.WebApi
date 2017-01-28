@@ -12,7 +12,12 @@ namespace Vobacom.HappyWheels.DAL
     {
         public void Add(Bike item)
         {
-            throw new NotImplementedException();
+            using (var context = new HappyWheelsContext())
+            {
+                context.Bikes.Add(item);
+
+                context.SaveChanges();
+            }
         }
 
         public void Delete(int id)
