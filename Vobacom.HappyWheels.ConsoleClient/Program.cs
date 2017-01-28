@@ -18,7 +18,10 @@ namespace Vobacom.HappyWheels.ConsoleClient
     {
         static void Main(string[] args)
         {
-            SyncTest();
+
+            CancelationTokenTest();
+
+           // SyncTest();
 
 
             Console.WriteLine("Press any key to exit.");
@@ -35,6 +38,19 @@ namespace Vobacom.HappyWheels.ConsoleClient
         }
 
 
+        private static void CancelationTokenTest()
+        {
+            var cancelToken = new CancellationTokenSource();
+
+            Task.Run(() => DoWork(cancelToken.Token), cancelToken.Token);
+
+
+            Thread.Sleep(2000);
+
+            cancelToken.Cancel();
+
+        }
+
         private static void SyncTest()
         {
             var task1 = Task.Run(() => Send());
@@ -49,6 +65,18 @@ namespace Vobacom.HappyWheels.ConsoleClient
 
             var task3 = Task.Run(() => Send());
 
+        }
+
+        private static void DoWork(CancellationToken cancelToken)
+        {
+            while (true)
+            {
+                if (cancelToken.IsCancellationRequested)
+                {
+                    return;
+                }
+                Console.Write("345");
+            }
         }
 
         private static void Send()

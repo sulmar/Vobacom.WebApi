@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Http;
 using Vobacom.HappyWheeks.Interfaces;
@@ -54,6 +55,36 @@ namespace Vobacom.HappyWheels.Service.Controllers
             var uri = Url.Link("DefaultApi", new { id = bike.BikeId });
 
             return Created(uri, bike);
+        }
+
+
+        [Route("api/Bikes/{id}")]
+        public IHttpActionResult Put(int id, Bike bike)
+        {
+            if (id != bike.BikeId)
+                return BadRequest();
+
+            bikesService.Update(bike);
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        [Route("api/Bikes/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            try
+            {
+                bikesService.Delete(id);
+            }
+            catch(KeyNotFoundException)
+            {
+                return NotFound();
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            return Ok();
         }
     }
 }

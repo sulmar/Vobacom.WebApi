@@ -30,7 +30,7 @@ namespace Vobacom.HappyWheels.Service.Controllers
             if (!stations.Any())
                 return NotFound();
 
-            return Ok(stations);
+            return Ok(stations) ;
         }
 
         public IHttpActionResult Get(int id)
