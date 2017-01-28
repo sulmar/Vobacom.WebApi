@@ -73,6 +73,37 @@ namespace Vobacom.HappyWheels.DAL
             }
         }
 
+        public IList<Bike> Get(BikesSearchCriteria criteria)
+        {
+            using (var context = new HappyWheelsContext())
+            {
+                var query = context.Bikes.AsQueryable();
+
+                Console.WriteLine(query.Expression.ToString());
+
+                if (!string.IsNullOrEmpty(criteria.Color))
+                {
+                    query = query.Where(b => b.Color == criteria.Color);
+                }
+
+                if (!string.IsNullOrEmpty(criteria.SerialNumber))
+                {
+                    query = query.Where(b => b.SerialNumber == criteria.SerialNumber);
+                }
+
+                if (criteria.BikeType.HasValue)
+                {
+                    query = query.Where(b => b.BikeType == criteria.BikeType);
+                }
+
+                var bikes = query.ToList();
+
+                return bikes;
+
+
+            }
+        }
+
         public Bike Get(int id)
         {
             using (var context = new HappyWheelsContext())

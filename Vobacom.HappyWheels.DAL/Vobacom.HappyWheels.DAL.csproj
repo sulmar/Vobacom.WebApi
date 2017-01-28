@@ -72,6 +72,10 @@
     <Compile Include="Migrations\201701221239026_UpdateWeightOnUser.Designer.cs">
       <DependentUpon>201701221239026_UpdateWeightOnUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701281459475_RenameLatitude.cs" />
+    <Compile Include="Migrations\201701281459475_RenameLatitude.Designer.cs">
+      <DependentUpon>201701281459475_RenameLatitude.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701221239026_UpdateWeightOnUser.resx">
       <DependentUpon>201701221239026_UpdateWeightOnUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701281459475_RenameLatitude.resx">
+      <DependentUpon>201701281459475_RenameLatitude.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
