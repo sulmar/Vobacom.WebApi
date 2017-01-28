@@ -41,19 +41,26 @@ namespace Vobacom.HappyWheels.ConsoleClient
 
         private static void CalculateTest()
         {
-            var result = Calculate(1000);
+            var task1 = Task.Run<decimal>(() => Calculate(1000))
+                .ContinueWith(task => Calculate(task.Result))
+                    .ContinueWith(task => Calculate(task.Result));
 
-            Console.WriteLine(result);
+            Console.WriteLine(task1.Result);
 
-            result = Calculate(result);
+            //result = Calculate(result);
 
-            Console.WriteLine(result);
+            //Console.WriteLine(result);
 
 
-            result = Calculate(result);
+            //result = Calculate(result);
 
-            Console.WriteLine(result);
+            //Console.WriteLine(result);
 
+        }
+
+        private static void Calculate(object result)
+        {
+            throw new NotImplementedException();
         }
 
         private static decimal Calculate(decimal amount)
