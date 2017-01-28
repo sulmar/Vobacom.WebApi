@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="Bike.cs" />
+    <Compile Include="BikesSearchCriteria.cs" />
     <Compile Include="BikeType.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="Location.cs" />

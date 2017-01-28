@@ -56,9 +56,17 @@ namespace Vobacom.HappyWheels.Service.Controllers
         //}
 
 
-        public async Task<IHttpActionResult> Get()
+        //public async Task<IHttpActionResult> Get()
+        //{
+        //    var bikes = await bikesService.GetAsync();
+
+        //    return Ok(bikes);
+        //}
+
+
+        public IHttpActionResult Get([FromUri] BikesSearchCriteria criteria)
         {
-            var bikes = await bikesService.GetAsync();
+            var bikes = bikesService.Get(criteria);
 
             return Ok(bikes);
         }

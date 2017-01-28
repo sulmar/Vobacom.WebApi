@@ -19,6 +19,9 @@ namespace Vobacom.HappyWheels.ConsoleClient
         static void Main(string[] args)
         {
 
+            LinqExpressionTest();
+
+
             ParallelTest();
 
            // CalculateAsyncTest();
@@ -41,6 +44,15 @@ namespace Vobacom.HappyWheels.ConsoleClient
             //DeleteStationTest();
 
             //AddStationTest();
+        }
+
+        private static void LinqExpressionTest()
+        {
+            IBikesService service = new DbBikesService();
+
+            var criteria = new BikesSearchCriteria { Color = "Red" };
+
+            var bikes = service.Get(criteria);
         }
 
         private static void ParallelTest()
