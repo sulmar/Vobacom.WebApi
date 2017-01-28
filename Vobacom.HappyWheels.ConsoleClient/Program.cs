@@ -19,7 +19,9 @@ namespace Vobacom.HappyWheels.ConsoleClient
         static void Main(string[] args)
         {
 
-            CancelationTokenTest();
+            CalculateTest();
+
+            // CancelationTokenTest();
 
            // SyncTest();
 
@@ -36,6 +38,36 @@ namespace Vobacom.HappyWheels.ConsoleClient
 
             //AddStationTest();
         }
+
+        private static void CalculateTest()
+        {
+            var result = Calculate(1000);
+
+            Console.WriteLine(result);
+
+            result = Calculate(result);
+
+            Console.WriteLine(result);
+
+
+            result = Calculate(result);
+
+            Console.WriteLine(result);
+
+        }
+
+        private static decimal Calculate(decimal amount)
+        {
+
+            Console.WriteLine("Calculating...");
+
+            Thread.Sleep(5000);
+
+            Console.WriteLine("Calculated.");
+
+            return amount * 1.1m;
+        }
+
 
 
         private static void CancelationTokenTest()
