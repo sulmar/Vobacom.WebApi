@@ -37,20 +37,29 @@ namespace Vobacom.HappyWheels.ConsoleClient
 
         private static void SyncTest()
         {
-            Send();
+            var task1 = Task.Run(() => Send());
 
-            Send();
+            task1.Wait();
 
-            Send();
+            var task2 = Task.Run(() => Send());
+
+            //Task.WaitAll(task1, task2);
+
+            Task.WaitAny(task1, task2);
+
+            var task3 = Task.Run(() => Send());
+
         }
 
         private static void Send()
         {
-            Console.WriteLine("Sending...");
+            var threadId = Thread.CurrentThread.ManagedThreadId;
+
+            Console.WriteLine($"Sending... threadid# {threadId}");
 
             Thread.Sleep(5000);
 
-            Console.WriteLine("Sent.");
+            Console.WriteLine($"Sent. threadid# {threadId}");
         }
 
         private static void AddRentalTest()
