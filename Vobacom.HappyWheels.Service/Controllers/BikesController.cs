@@ -24,14 +24,15 @@ namespace Vobacom.HappyWheels.Service.Controllers
             this.bikesService = bikesService;
         }
 
+        [Route("api/bikes/{serialNumber}")]
+        public IHttpActionResult Get(string serialNumber)
+        {
+            throw new NotImplementedException();
 
-        //public IHttpActionResult Get(string serialNumber)
-        //{
-        //    throw new NotImplementedException();
+            return Ok();
+        }
 
-        //    return Ok();
-        //}
-
+        [Route("api/bikes/{id:int}")]
         public IHttpActionResult Get(int id)
         {
             var bike = bikesService.Get(id);
