@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vobacom.HappyWheels.Models
 {
-    public class User : Base
+    public class User : Base, IDisposable
     {
         public int UserId { get; set; }
 
@@ -32,5 +32,10 @@ namespace Vobacom.HappyWheels.Models
 
         
         public override string ToString() => FullName;
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

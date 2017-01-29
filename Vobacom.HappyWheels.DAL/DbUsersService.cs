@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using Vobacom.HappyWheeks.Interfaces;
 using Vobacom.HappyWheels.Models;
 
@@ -22,30 +23,37 @@ namespace Vobacom.HappyWheels.DAL
 
         public async Task AddAsync(User user, Bike bike)
         {
-            using (var context = new HappyWheelsContext())
-            {
-                var transaction = context.Database.BeginTransaction();
+
+                // Distribution transaction
+                // Add reference: System.Transaction
 
                 try
                 {
-                    context.Users.Add(user);
+                    using (var transactionScope = new TransactionScope())
+                    {
+                        using (var context1 = new HappyWheelsContext())
+                        {
+                            context1.Users.Add(user);
 
-                    await context.SaveChangesAsync();
+                            await context1.SaveChangesAsync();
 
-                    context.Bikes.Add(bike);
+                        }
 
-                    await context.SaveChangesAsync();
+                        using (var context2 = new HappyWheelsContext())
+                        {
+                            context2.Bikes.Add(bike);
 
-                    transaction.Commit();
+                            await context2.SaveChangesAsync();
+                        }
 
+                        transactionScope.Complete();
+                    }
                 }
                 catch (Exception e)
                 {
-                    transaction.Rollback();
-
-                    throw new ApplicationException("Błąd podczas zakładania konta użytkownika");
+                    throw new ApplicationException("Błąd podczas zakładania konta");
                 }
-            }
+
         }
 
         public void Delete(int id)
