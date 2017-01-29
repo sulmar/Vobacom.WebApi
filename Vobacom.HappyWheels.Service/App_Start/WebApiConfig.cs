@@ -23,8 +23,10 @@ namespace Vobacom.HappyWheels.Service
             );
 
 
+            
             config.MessageHandlers.Add(new TraceMessageHandler());
-            config.MessageHandlers.Add(new SecretKeyMessageHandler());
+            // config.MessageHandlers.Add(new SecretKeyMessageHandler());
+            config.MessageHandlers.Add(new FormatMessageHandler());
 
             config.Formatters.Add(new QrCodeMediaTypeFormatter());
         }
