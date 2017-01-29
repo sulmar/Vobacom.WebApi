@@ -29,7 +29,7 @@ namespace Vobacom.HappyWheels.DAL
 
                 try
                 {
-                    using (var transactionScope = new TransactionScope())
+                    using (var transactionScope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
                     {
                         using (var context1 = new HappyWheelsContext())
                         {
