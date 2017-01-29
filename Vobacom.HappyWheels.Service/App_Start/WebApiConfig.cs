@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Vobacom.HappyWheels.Service.Formatters;
 using Vobacom.HappyWheels.Service.Handlers;
 
 namespace Vobacom.HappyWheels.Service
@@ -24,6 +25,8 @@ namespace Vobacom.HappyWheels.Service
 
             config.MessageHandlers.Add(new TraceMessageHandler());
             config.MessageHandlers.Add(new SecretKeyMessageHandler());
+
+            config.Formatters.Add(new QrCodeMediaTypeFormatter());
         }
     }
 }
