@@ -18,11 +18,12 @@ namespace Vobacom.HappyWheels.ConsoleClient
     {
         static void Main(string[] args)
         {
+            Task.Run(()=> TransactionTest());
 
-            LinqExpressionTest();
+          //  LinqExpressionTest();
 
 
-            ParallelTest();
+         //   ParallelTest();
 
            // CalculateAsyncTest();
 
@@ -44,6 +45,43 @@ namespace Vobacom.HappyWheels.ConsoleClient
             //DeleteStationTest();
 
             //AddStationTest();
+        }
+
+        private static async Task TransactionTest()
+        {
+            var user = new User
+            {
+                FirstName = "Kasia",
+                LastName = "Sulecka",
+                Email = "marcin.sulecki@gmail.com",
+                Birthdate = DateTime.Today,
+                Gender = Gender.Man,
+            };
+
+            var bike = new Bike
+            {
+                SerialNumber = "R009",
+                BikeType = BikeType.Sport,
+                Color = "White",
+                IsActive = true,
+                Location = new Location
+                {
+                    Latitude = 53.01f,
+                    Longitude = 28.52f
+                }
+            };
+
+            IUsersService service = new DbUsersService();
+
+            try
+            {
+                await service.AddAsync(user, bike);
+            }
+
+            catch(ApplicationException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         private static void LinqExpressionTest()

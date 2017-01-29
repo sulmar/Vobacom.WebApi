@@ -9,5 +9,6 @@ namespace Vobacom.HappyWheeks.Interfaces
 {
     public interface IUsersService : IService<User>
     {
+        Task AddAsync(User user, Bike bike);
     }
 }
