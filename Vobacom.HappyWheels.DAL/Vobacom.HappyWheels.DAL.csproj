@@ -78,6 +78,10 @@
     <Compile Include="Migrations\201701281459475_RenameLatitude.Designer.cs">
       <DependentUpon>201701281459475_RenameLatitude.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701291202182_AddRowVersionToUser.cs" />
+    <Compile Include="Migrations\201701291202182_AddRowVersionToUser.Designer.cs">
+      <DependentUpon>201701291202182_AddRowVersionToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -110,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701281459475_RenameLatitude.resx">
       <DependentUpon>201701281459475_RenameLatitude.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701291202182_AddRowVersionToUser.resx">
+      <DependentUpon>201701291202182_AddRowVersionToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -17,13 +17,18 @@ namespace Vobacom.HappyWheels.DAL.Configurations
 
             Property(p => p.FirstName)
                 .HasMaxLength(50)
-                .IsConcurrencyToken()
+          //      .IsConcurrencyToken()
                 ;
-               // .HasColumnName("Imie");
+            // .HasColumnName("Imie");
 
             Property(p => p.LastName)
                 .HasMaxLength(50)
                 .IsRequired()
+            //    .IsConcurrencyToken();
+            ;
+
+            Property(p => p.RowVersion)
+                .IsRowVersion()
                 .IsConcurrencyToken();
         }
     }
