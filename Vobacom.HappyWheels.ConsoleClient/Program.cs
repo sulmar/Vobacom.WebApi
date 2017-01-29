@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -57,17 +58,29 @@ namespace Vobacom.HappyWheels.ConsoleClient
             {
                 var user1 = context1.Users.First();
 
-                user1.FirstName = "Marta";
+              //  user1.FirstName = "Kasia";
+                user1.LastName = "Majka";
 
                 var user2 = context2.Users.First();
-                user2.FirstName = "Alicja";
+                //user2.FirstName = "Anna";
 
-                context2.SaveChanges();
+                user2.LastName = "Kowalska";
 
-                Thread.Sleep(1000);
 
-                context1.SaveChanges();
+                try
+                {
 
+                    context2.SaveChanges();
+
+                    Thread.Sleep(1000);
+
+                    context1.SaveChanges();
+
+                }
+                catch(DbUpdateConcurrencyException e)
+                {
+                    Console.WriteLine("Użytkownik został w międzyczasie zmodyfikowany. Twoje zmiany nie zostały zapisane.");
+                }
 
 
             }

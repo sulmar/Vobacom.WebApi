@@ -16,12 +16,15 @@ namespace Vobacom.HappyWheels.DAL.Configurations
             // ToTable("Uzytkownicy");
 
             Property(p => p.FirstName)
-                .HasMaxLength(50);
+                .HasMaxLength(50)
+                .IsConcurrencyToken()
+                ;
                // .HasColumnName("Imie");
 
             Property(p => p.LastName)
                 .HasMaxLength(50)
-                .IsRequired();
+                .IsRequired()
+                .IsConcurrencyToken();
         }
     }
 }
