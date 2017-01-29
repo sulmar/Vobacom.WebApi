@@ -18,7 +18,10 @@ namespace Vobacom.HappyWheels.ConsoleClient
     {
         static void Main(string[] args)
         {
-            Task.Run(()=> TransactionTest());
+            ConcurencyTest();
+
+
+           // Task.Run(()=> TransactionTest());
 
           //  LinqExpressionTest();
 
@@ -45,6 +48,29 @@ namespace Vobacom.HappyWheels.ConsoleClient
             //DeleteStationTest();
 
             //AddStationTest();
+        }
+
+        private static void ConcurencyTest()
+        {
+            using (var context1 = new HappyWheelsContext())
+            using (var context2 = new HappyWheelsContext())
+            {
+                var user1 = context1.Users.First();
+
+                user1.FirstName = "Marta";
+
+                var user2 = context2.Users.First();
+                user2.FirstName = "Alicja";
+
+                context2.SaveChanges();
+
+                Thread.Sleep(1000);
+
+                context1.SaveChanges();
+
+
+
+            }
         }
 
         private static async Task TransactionTest()
