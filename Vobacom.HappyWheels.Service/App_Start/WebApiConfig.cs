@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation.WebApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -26,9 +27,11 @@ namespace Vobacom.HappyWheels.Service
             
             config.MessageHandlers.Add(new TraceMessageHandler());
             // config.MessageHandlers.Add(new SecretKeyMessageHandler());
-            config.MessageHandlers.Add(new FormatMessageHandler());
+          //  config.MessageHandlers.Add(new FormatMessageHandler());
 
             config.Formatters.Add(new QrCodeMediaTypeFormatter());
+
+            FluentValidationModelValidatorProvider.Configure(config);
         }
     }
 }

@@ -10,6 +10,7 @@ using Vobacom.HappyWheeks.Interfaces;
 using Vobacom.HappyWheels.DAL;
 using Vobacom.HappyWheels.MockServices;
 using Vobacom.HappyWheels.Models;
+using Vobacom.HappyWheels.Models.Validators;
 using static System.Console;
 using static System.Math;
 
@@ -19,7 +20,11 @@ namespace Vobacom.HappyWheels.ConsoleClient
     {
         static void Main(string[] args)
         {
-            ConcurencyTest();
+
+            ValidationTest();
+
+
+         //   ConcurencyTest();
 
 
            // Task.Run(()=> TransactionTest());
@@ -49,6 +54,19 @@ namespace Vobacom.HappyWheels.ConsoleClient
             //DeleteStationTest();
 
             //AddStationTest();
+        }
+
+        private static void ValidationTest()
+        {
+            var user = new User { FirstName = "MMMMMrwerfhjwehrwerweriweeiuryweiyriwyrw" };
+
+            var validator = new UserValidator();
+            var results = validator.Validate(user);
+
+            if (!results.IsValid)
+            {
+                results.Errors.ToList().ForEach(e => Console.WriteLine(e.ErrorMessage));
+            }
         }
 
         private static void ConcurencyTest()

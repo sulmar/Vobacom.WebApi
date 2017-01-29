@@ -77,6 +77,9 @@ namespace Vobacom.HappyWheels.Service.Controllers
 
         public IHttpActionResult Post(Bike bike)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             bikesService.Add(bike);
 
             var uri = Url.Link("DefaultApi", new { id = bike.BikeId });
