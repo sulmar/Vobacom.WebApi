@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Vobacom.HappyWheels.Service.Handlers;
 
 namespace Vobacom.HappyWheels.Service
 {
@@ -19,6 +20,10 @@ namespace Vobacom.HappyWheels.Service
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
+            config.MessageHandlers.Add(new TraceMessageHandler());
+            config.MessageHandlers.Add(new SecretKeyMessageHandler());
         }
     }
 }

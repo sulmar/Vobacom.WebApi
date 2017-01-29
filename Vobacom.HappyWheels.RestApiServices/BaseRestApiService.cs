@@ -22,6 +22,9 @@ namespace Vobacom.HappyWheels.RestApiServices
             client = new HttpClient();
 
             client.BaseAddress = new Uri(serviceBaseAddress);
+
+
+            client.DefaultRequestHeaders.Add("Secret-Key", "12345");
         }
     }
 }
